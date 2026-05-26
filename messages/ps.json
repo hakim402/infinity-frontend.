@@ -1,0 +1,80 @@
+{
+  "Header": {
+    "home": "کور",
+    "products": "محصولات",
+    "service": "خدمتونه",
+    "blogs": "بلاګونه",
+    "about": "زموږ په اړه",
+    "contact": "اړیکه",
+    "profile": "پروفایل",
+    "login": "ننوتل",
+    "signUp": "راجستر"
+  },
+
+
+  "footer": {
+    "tagline": "د تصدۍ کچې مصنوعي هوښیارتیا، سایبري امنیت، سافټویر انجینیرۍ، ابري زیربنا او ډیجیټل بدلون ټول یو ځای کې.",
+    "location": "ریموټ ټیم چې نړۍ کې.",
+
+    "contact": {
+      "whatsapp": "واټسایپ له لارې اړیکه",
+      "email": "بریښنالیک واستوئ"
+    },
+
+    "cta": {
+      "heading": "د خپل سوداګرۍ د بدلون لپاره چمتو یاست؟",
+      "subheading": "موږ ته د خپل پروژه په اړه ووایاست، موږ به د ۲۴ ساعتونو دننه ځواب درکړو.",
+      "button": "پیل وکړئ"
+    },
+
+    "columns": {
+      "services": {
+        "title": "خدمتونه",
+        "ai_solutions": "د AI حل لارې",
+        "ai_bots": "AI بوټونه او اتوماتیک کول",
+        "software_dev": "سافټویر پراختیا",
+        "web_dev": "ویب پراختیا",
+        "mobile_dev": "د موبایل اپلیکیشن جوړول",
+        "cybersecurity": "سایبري امنیت خدمتونه"
+      },
+      "technology": {
+        "title": "ټکنالوژي",
+        "claude_ai": "د Claude AI ادغام",
+        "api_integration": "د API ادغام",
+        "database": "د ډیټابیس جوړښت",
+        "cloud": "ابري زیربنا",
+        "security_compliance": "امنیتي مطابقت",
+        "digital_transform": "ډیجیټل بدلون"
+      },
+      "company": {
+        "title": "شرکت",
+        "about": "زموږ په اړه",
+        "services": "زموږ خدمتونه",
+        "blogs": "بلاګ او لیدونه",
+        "contact": "موږ سره اړیکه",
+        "privacy": "د محرمیت پالیسي",
+        "terms": "د خدمت شرطونه"
+      }
+    },
+
+    "bottom": {
+      "copyright": "© {year} Infinity Solutions. ټول حقوق خوندي دي.",
+      "privacy": "محرمیت",
+      "terms": "شرطونه",
+      "sitemap": "د سایټ نقشه"
+    },
+
+    "social": {
+      "facebook": "فیسبوک",
+      "instagram": "انسټاګرام",
+      "twitter": "ایکس (ټویټر)",
+      "linkedin": "لینکډین"
+    },
+
+    "badges": {
+      "popular": "مشهور",
+      "new": "نوی",
+      "enterprise": "د تصدۍ کچه"
+    }
+  }
+}

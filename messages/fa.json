@@ -1,0 +1,80 @@
+{
+  "Header": {
+    "home": "خانه",
+    "products": "محصولات",
+    "service": "خدمات",
+    "blogs": "بلاگ‌ها",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "profile": "پروفایل",
+    "login": "ورود",
+    "signUp": "ثبت نام"
+  },
+
+  
+  "footer": {
+    "tagline": "هوش مصنوعی سازمانی، امنیت سایبری، مهندسی نرم‌افزار، زیرساخت ابری و تحول دیجیتال همه در یک مجموعه.",
+    "location": "تیم کاری از راه دور در سطح جهانی.",
+
+    "contact": {
+      "whatsapp": "گفتگو در واتساپ",
+      "email": "ارسال ایمیل"
+    },
+
+    "cta": {
+      "heading": "آماده تحول کسب‌وکار خود هستید؟",
+      "subheading": "پروژه‌تان را با ما در میان بگذارید، ظرف ۲۴ ساعت پاسخ می‌دهیم.",
+      "button": "شروع کنید"
+    },
+
+    "columns": {
+      "services": {
+        "title": "خدمات",
+        "ai_solutions": "راهکارهای هوش مصنوعی",
+        "ai_bots": "ربات‌های هوشمند و اتوماسیون",
+        "software_dev": "توسعه نرم‌افزار",
+        "web_dev": "طراحی وب",
+        "mobile_dev": "توسعه اپلیکیشن موبایل",
+        "cybersecurity": "خدمات امنیت سایبری"
+      },
+      "technology": {
+        "title": "فناوری",
+        "claude_ai": "یکپارچه‌سازی Claude AI",
+        "api_integration": "یکپارچه‌سازی API",
+        "database": "معماری پایگاه داده",
+        "cloud": "زیرساخت ابری",
+        "security_compliance": "انطباق امنیتی",
+        "digital_transform": "تحول دیجیتال"
+      },
+      "company": {
+        "title": "شرکت",
+        "about": "درباره ما",
+        "services": "خدمات ما",
+        "blogs": "وبلاگ و دیدگاه‌ها",
+        "contact": "تماس با ما",
+        "privacy": "سیاست حریم خصوصی",
+        "terms": "شرایط خدمات"
+      }
+    },
+
+    "bottom": {
+      "copyright": "© {year} Infinity Solutions. تمامی حقوق محفوظ است.",
+      "privacy": "حریم خصوصی",
+      "terms": "شرایط",
+      "sitemap": "نقشه سایت"
+    },
+
+    "social": {
+      "facebook": "فیسبوک",
+      "instagram": "اینستاگرام",
+      "twitter": "ایکس (توییتر)",
+      "linkedin": "لینکدین"
+    },
+
+    "badges": {
+      "popular": "پرطرفدار",
+      "new": "جدید",
+      "enterprise": "سازمانی"
+    }
+  }
+}

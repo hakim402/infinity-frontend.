@@ -1,0 +1,81 @@
+{
+    "Header": {
+        "home": "Home",
+        "products": "Products",
+        "service": "Services",
+        "blogs": "Blogs",
+        "about": "About",
+        "contact": "Contact",
+        "profile": "Profile",
+        "login": "Login",
+        "signUp": "Sign Up"
+    },
+    
+
+    "footer": {
+        "tagline": "Enterprise grade AI, cybersecurity, software engineering, cloud infrastructure, and digital transformation all under one roof.",
+        "location": "Remote-first team operating globally across the world.",
+
+        "contact": {
+        "whatsapp": "Chat on WhatsApp",
+        "email": "Send an email"
+        },
+
+        "cta": {
+        "heading": "Ready to transform your business?",
+        "subheading": "Tell us about your project and we'll respond within 24 hours.",
+        "button": "Get started"
+        },
+
+        "columns": {
+        "services": {
+            "title": "Services",
+            "ai_solutions": "AI Solutions",
+            "ai_bots": "AI Bots & Automation",
+            "software_dev": "Software Development",
+            "web_dev": "Web Development",
+            "mobile_dev": "Mobile App Development",
+            "cybersecurity": "Cybersecurity Services"
+        },
+        "technology": {
+            "title": "Technology",
+            "claude_ai": "Claude AI Integration",
+            "api_integration": "API Integration",
+            "database": "Database Architecture",
+            "cloud": "Cloud Infrastructure",
+            "security_compliance": "Security Compliance",
+            "digital_transform": "Digital Transformation"
+        },
+        "company": {
+            "title": "Company",
+            "about": "About Us",
+            "services": "Our Services",
+            "blogs": "Blog & Insights",
+            "contact": "Contact Us",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        }
+        },
+
+        "bottom": {
+        "copyright": "© {year} Infinity Solutions. All rights reserved.",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "sitemap": "Sitemap"
+        },
+
+        "social": {
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "twitter": "X (Twitter)",
+        "linkedin": "LinkedIn"
+        },
+
+        "badges": {
+        "popular": "Popular",
+        "new": "New",
+        "enterprise": "Enterprise"
+        }
+    }
+
+}

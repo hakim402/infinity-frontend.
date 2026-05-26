@@ -1,0 +1,81 @@
+{
+  "Header": {
+    "home": "首页",
+    "products": "产品",
+    "service": "服务",
+    "blogs": "博客",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "profile": "个人资料",
+    "login": "登录",
+    "signUp": "注册"
+  },
+
+  
+  "footer": {
+    "tagline": "企业级人工智能、网络安全、软件工程、云基础设施与数字化转型 站式解决方案。",
+    "location": "在中东、亚洲、欧洲和北美全球运营。",
+
+    "contact": {
+      "whatsapp": "通过 WhatsApp 联系",
+      "email": "发送电子邮件"
+    },
+
+    "cta": {
+      "heading": "准备好转型您的业务了吗？",
+      "subheading": "告诉我们您的项目需求，我们将在 24 小时内回复。",
+      "button": "立即开始"
+    },
+
+    "columns": {
+      "services": {
+        "title": "服务",
+        "ai_solutions": "人工智能解决方案",
+        "ai_bots": "AI 机器人与自动化",
+        "software_dev": "软件开发",
+        "web_dev": "网站开发",
+        "mobile_dev": "移动应用开发",
+        "cybersecurity": "网络安全服务"
+      },
+      "technology": {
+        "title": "技术",
+        "claude_ai": "Claude AI 集成",
+        "api_integration": "API 集成",
+        "database": "数据库架构",
+        "cloud": "云基础设施",
+        "security_compliance": "安全合规",
+        "digital_transform": "数字化转型"
+      },
+      "company": {
+        "title": "公司",
+        "about": "关于我们",
+        "services": "我们的服务",
+        "blogs": "博客与洞察",
+        "contact": "联系我们",
+        "privacy": "隐私政策",
+        "terms": "服务条款"
+      }
+    },
+
+    "bottom": {
+      "copyright": "© {year} Infinity Solutions 保留所有权利。",
+      "privacy": "隐私",
+      "terms": "条款",
+      "sitemap": "网站地图"
+    },
+
+    "social": {
+      "facebook": "脸书",
+      "instagram": "Instagram",
+      "twitter": "X（推特）",
+      "linkedin": "领英"
+    },
+
+    "badges": {
+      "popular": "热门",
+      "new": "最新",
+      "enterprise": "企业级"
+    }
+  }
+
+}
