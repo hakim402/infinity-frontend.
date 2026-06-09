@@ -76,6 +76,61 @@
         "new": "New",
         "enterprise": "Enterprise"
         }
+    },
+
+    
+  "HomeHero": {
+    "eyebrow": "Infinity Enterprise Solutions",
+    "headlineLead": "Automate operations. Launch products.",
+    "headlineAccent": "Scale with AI.",
+    "description": "We design AI agents, web platforms, mobile apps, and integrations that remove manual work and connect the systems your business depends on.",
+    "primaryAction": "Start a Project",
+    "secondaryAction": "View Services",
+    "trustNote": "Built for companies that want cleaner systems, faster execution, and less operational friction.",
+    "visualTitle": "Infinity Business OS",
+    "visualSubtitle": "Automation, software, and payments in one workflow",
+    "workflowLabel": "Live Automation Flow",
+    "workflowSteps": [
+      "Lead received",
+      "AI qualifies intent",
+      "CRM and team updated",
+      "Report ready"
+    ],
+    "stats": [
+      {
+        "value": "AI Agents",
+        "label": "For sales, support, and internal operations"
+      },
+      {
+        "value": "Custom Apps",
+        "label": "Web, mobile, dashboards, and SaaS products"
+      },
+      {
+        "value": "Integrations",
+        "label": "Payments, CRM, ERP, APIs, and automation tools"
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Manual tasks",
+        "value": "Automated"
+      },
+      {
+        "label": "Customer response",
+        "value": "24/7"
+      },
+      {
+        "label": "Business systems",
+        "value": "Connected"
+      }
+    ],
+    "preview": {
+      "agentTitle": "AI assistant",
+      "agentStatus": "Handling leads, support requests, and internal tasks",
+      "growthTitle": "Systems synced",
+      "growthSubtitle": "CRM, payments, analytics",
+      "liveBadge": "Live"
     }
+  }
 
 }

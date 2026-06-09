@@ -10,7 +10,102 @@
     "login": "登录",
     "signUp": "注册"
   },
-
+  
+  "HomeHero": {
+      "eyebrow": "Infinity Enterprise Solutions",
+      "headlineLead": "面向现代企业增长的",
+      "headlineAccent": "AI 自动化与软件解决方案",
+      "description": "我们帮助企业简化运营、发布数字产品、连接支付系统，并通过 AI 智能体、定制软件和智能自动化实现规模化增长。",
+      "primaryAction": "探索服务",
+      "secondaryAction": "启动项目",
+      "trustNote": "一个技术合作伙伴，全面支持自动化、数字产品、支付、系统集成和规模化增长。",
+      "servicesHeading": "核心服务",
+      "servicesDescription": "为企业实现自动化、销售、服务与规模化提供完整技术能力。",
+      "visualTitle": "自动化指挥中心",
+      "visualSubtitle": "通过 AI 连接您的业务系统",
+      "workflowLabel": "工作流自动化",
+      "workflowSteps": [
+        "获取销售线索",
+        "AI 识别意向",
+        "更新 CRM",
+        "生成业务报告"
+      ],
+      "stats": [
+        {
+          "value": "6+",
+          "label": "核心服务领域"
+        },
+        {
+          "value": "24/7",
+          "label": "AI 智能支持"
+        },
+        {
+          "value": "端到端",
+          "label": "解决方案交付"
+        }
+      ],
+      "services": [
+        {
+          "title": "AI 企业自动化",
+          "description": "自动化工作流、报表、CRM、ERP 和日常业务运营。"
+        },
+        {
+          "title": "AI 聊天机器人与智能体",
+          "description": "为销售、客服、WhatsApp、Telegram 和网站部署智能助手。"
+        },
+        {
+          "title": "网站开发",
+          "description": "构建现代网站、SaaS 产品、仪表盘、门户和全栈平台。"
+        },
+        {
+          "title": "移动应用开发",
+          "description": "为企业和客户创建 Android、iOS 和跨平台应用。"
+        },
+        {
+          "title": "API 与支付集成",
+          "description": "连接支付网关、AI API、CRM、ERP、社交平台和自动化工具。"
+        },
+        {
+          "title": "数字化转型",
+          "description": "使用可扩展、云就绪的企业软件升级业务系统。"
+        }
+      ],
+      "features": [
+        {
+          "title": "自动化优先策略",
+          "description": "用可靠的 AI 工作流替代重复性任务。"
+        },
+        {
+          "title": "统一客户旅程",
+          "description": "将网站、社交渠道和消息应用整合为统一的客户互动系统。"
+        },
+        {
+          "title": "可扩展架构",
+          "description": "构建可随运营和数据增长而扩展的安全数字产品。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "运行中的工作流",
+          "value": "12"
+        },
+        {
+          "label": "已连接系统",
+          "value": "8"
+        },
+        {
+          "label": "自动化状态",
+          "value": "运行中"
+        }
+      ],
+      "preview": {
+        "agentTitle": "AI 智能体",
+        "agentStatus": "全天候在线",
+        "growthTitle": "增长技术栈",
+        "growthSubtitle": "网站、支付与 CRM",
+        "liveBadge": "运行中"
+      }
+    },
   
   "footer": {
     "tagline": "企业级人工智能、网络安全、软件工程、云基础设施与数字化转型 站式解决方案。",

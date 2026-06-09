@@ -1,32 +1,32 @@
-/* ============================================================================
-   INFINITY SOLUTIONS — GLOBAL STYLES
-   ----------------------------------------------------------------------------
+/* ==========================================================================
+   INFINITY SOLUTIONS - GLOBAL STYLES
+   --------------------------------------------------------------------------
    Table of Contents
    1. Imports
    2. Tailwind Custom Variants
-   3. Theme Tokens  (@theme inline)
-   4. Light Theme   (:root)
-   5. Dark Theme    (.dark)
+   3. Theme Tokens (@theme inline)
+   4. Light Theme (:root)
+   5. Dark Theme (.dark)
    6. Typography / Font Routing
    7. Base Layer
    8. Prose (Blog / Rich Text)
-   9. Utility Classes
-   ============================================================================ */
+   9. Brand Utility Classes
+   ========================================================================== */
 
 
-/* ─── 1. IMPORTS ─────────────────────────────────────────────────────────── */
+/* --- 1. IMPORTS ---------------------------------------------------------- */
 
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 
-/* ─── 2. TAILWIND CUSTOM VARIANTS ───────────────────────────────────────── */
+/* --- 2. TAILWIND CUSTOM VARIANTS ---------------------------------------- */
 
 @custom-variant dark (&:is(.dark *));
 
 
-/* ─── 3. THEME TOKENS ────────────────────────────────────────────────────── */
+/* --- 3. THEME TOKENS ----------------------------------------------------- */
 
 @theme inline {
   /* Radius scale */
@@ -38,7 +38,13 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  /* Semantic color aliases → CSS variables */
+  /* Brand colors */
+  --color-brand:              var(--brand);
+  --color-brand-start:        var(--brand-start);
+  --color-brand-end:          var(--brand-end);
+  --color-brand-foreground:   var(--brand-foreground);
+
+  /* Semantic color aliases */
   --color-background:                var(--background);
   --color-foreground:                var(--foreground);
   --color-card:                      var(--card);
@@ -73,138 +79,168 @@
 }
 
 
-/* ─── 4. LIGHT THEME (:root) ─────────────────────────────────────────────── */
+/* --- 4. LIGHT THEME (:root) --------------------------------------------- */
 
 :root {
   /* Base */
   --radius: 0.625rem;
 
-  /* Brand */
-  --brand:  #7b57fc;
-  --indigo: oklch(0.63 0.25 281);
+  /* Brand: requested 90-degree cyan-to-blue gradient */
+  --brand-start:      #0ab8fb;
+  --brand-end:        #324b9d;
+  --brand:            #245ea9;
+  --brand-foreground: #ffffff;
+  --brand-gradient:   linear-gradient(
+    90deg,
+    var(--brand-start) 0%,
+    var(--brand-end) 100%
+  );
+  --brand-gradient-soft: linear-gradient(
+    90deg,
+    rgb(10 184 251 / 14%) 0%,
+    rgb(50 75 157 / 14%) 100%
+  );
+  --brand-shadow: 0 12px 32px rgb(36 94 169 / 22%);
 
-  /* Surface */
-  --background:         oklch(0.99 0.002 240);
-  --foreground:         oklch(0.11 0.030 263);
+  /* Surface: crisp white with a subtle cool-blue cast */
+  --background:         #f8fbff;
+  --foreground:         #0c1b33;
 
   /* Card */
-  --card:               oklch(1 0 0);
-  --card-foreground:    oklch(0.11 0.030 263);
+  --card:               #ffffff;
+  --card-foreground:    #0c1b33;
 
   /* Popover */
-  --popover:            oklch(1 0 0);
-  --popover-foreground: oklch(0.11 0.030 263);
+  --popover:            #ffffff;
+  --popover-foreground: #0c1b33;
 
-  /* Primary — deep indigo */
-  --primary:            oklch(0.38 0.18 278);
-  --primary-foreground: oklch(0.98  0.004 248);
+  /*
+   * Primary remains a solid color so Shadcn and Radix states can use it
+   * safely. Use .bg-color or .bg-brand-gradient for the full gradient.
+   */
+  --primary:            #245ea9;
+  --primary-foreground: #ffffff;
 
-  /* Secondary — soft slate */
-  --secondary:          oklch(0.95 0.006 260);
-  --secondary-foreground: oklch(0.28 0.040 264);
+  /* Secondary: light blue surface */
+  --secondary:            #eaf4ff;
+  --secondary-foreground: #183c70;
 
   /* Muted */
-  --muted:              oklch(0.96 0.004 260);
-  --muted-foreground:   oklch(0.52 0.030 264);
+  --muted:              #eef5fb;
+  --muted-foreground:   #56697f;
 
-  /* Accent */
-  --accent:             oklch(0.93 0.025 278);
-  --accent-foreground:  oklch(0.28 0.060 278);
+  /* Accent: cyan-tinted interactive surface */
+  --accent:             #dff4ff;
+  --accent-foreground:  #164f83;
 
   /* Destructive */
-  --destructive:        oklch(0.58 0.24 27);
+  --destructive:        #dc2626;
 
-  /* Borders & inputs */
-  --border:             oklch(0.90 0.008 264);
-  --input:              oklch(0.90 0.008 264);
-  --ring:               oklch(0.55 0.12 278);
+  /* Borders, inputs, and focus */
+  --border:             #d8e5f0;
+  --input:              #cbdce9;
+  --ring:               #0a9fdf;
 
-  /* Data-viz chart palette */
-  --chart-1:            oklch(0.65 0.22  41);
-  --chart-2:            oklch(0.60 0.12 185);
-  --chart-3:            oklch(0.40 0.07 227);
-  --chart-4:            oklch(0.83 0.19  84);
-  --chart-5:            oklch(0.77 0.19  70);
+  /* Data visualization palette */
+  --chart-1:            #0ab8fb;
+  --chart-2:            #324b9d;
+  --chart-3:            #13a89e;
+  --chart-4:            #f59e0b;
+  --chart-5:            #7c3aed;
 
   /* Sidebar */
-  --sidebar:                      oklch(0.97 0.004 248);
-  --sidebar-foreground:           oklch(0.11 0.030 263);
-  --sidebar-primary:              oklch(0.38 0.18  278);
-  --sidebar-primary-foreground:   oklch(0.98 0.004 248);
-  --sidebar-accent:               oklch(0.93 0.025 278);
-  --sidebar-accent-foreground:    oklch(0.28 0.060 278);
-  --sidebar-border:               oklch(0.90 0.008 264);
-  --sidebar-ring:                 oklch(0.55 0.12  278);
+  --sidebar:                      #f1f7fd;
+  --sidebar-foreground:           #0c1b33;
+  --sidebar-primary:              #245ea9;
+  --sidebar-primary-foreground:   #ffffff;
+  --sidebar-accent:               #dff4ff;
+  --sidebar-accent-foreground:    #164f83;
+  --sidebar-border:               #d8e5f0;
+  --sidebar-ring:                 #0a9fdf;
 
   /* Font routing (default = English) */
   --font-sans: var(--font-en);
 }
 
 
-/* ─── 5. DARK THEME (.dark) ──────────────────────────────────────────────── */
+/* --- 5. DARK THEME (.dark) ---------------------------------------------- */
 
 .dark {
-  /* Surface — very dark navy, not pure black */
-  --background:         oklch(0.10 0.022 263);
-  --foreground:         oklch(0.96 0.006 248);
+  /* Brand endpoints remain consistent across themes */
+  --brand-start:      #0ab8fb;
+  --brand-end:        #324b9d;
+  --brand:            #38bdf8;
+  --brand-foreground: #06131f;
+  --brand-gradient:   linear-gradient(
+    90deg,
+    var(--brand-start) 0%,
+    var(--brand-end) 100%
+  );
+  --brand-gradient-soft: linear-gradient(
+    90deg,
+    rgb(10 184 251 / 18%) 0%,
+    rgb(50 75 157 / 22%) 100%
+  );
+  --brand-shadow: 0 14px 38px rgb(10 184 251 / 18%);
 
-  /* Card — one step lighter than bg */
-  --card:               oklch(0.15 0.026 264);
-  --card-foreground:    oklch(0.96 0.006 248);
+  /* Surface: deep navy derived from the blue endpoint */
+  --background:         #07111f;
+  --foreground:         #eef7ff;
+
+  /* Card */
+  --card:               #0d1a2d;
+  --card-foreground:    #eef7ff;
 
   /* Popover */
-  --popover:            oklch(0.15 0.026 264);
-  --popover-foreground: oklch(0.96 0.006 248);
+  --popover:            #0d1a2d;
+  --popover-foreground: #eef7ff;
 
-  /* Primary — vibrant violet */
-  --primary:            oklch(0.72 0.20 278);
-  --primary-foreground: oklch(0.12 0.030 264);
+  /* Primary: brighter cyan for strong dark-mode contrast */
+  --primary:            #38bdf8;
+  --primary-foreground: #06131f;
 
   /* Secondary */
-  --secondary:          oklch(0.22 0.030 257);
-  --secondary-foreground: oklch(0.96 0.006 248);
+  --secondary:            #142741;
+  --secondary-foreground: #e7f3ff;
 
   /* Muted */
-  --muted:              oklch(0.20 0.025 257);
-  --muted-foreground:   oklch(0.62 0.024 261);
+  --muted:              #122238;
+  --muted-foreground:   #9eb0c4;
 
-  /* Accent — soft purple tint */
-  --accent:             oklch(0.28 0.055 278);
-  --accent-foreground:  oklch(0.96 0.006 248);
+  /* Accent: restrained blue-cyan interactive surface */
+  --accent:             #163b5a;
+  --accent-foreground:  #dff6ff;
 
-  /* Destructive — warm red */
-  --destructive:        oklch(0.70 0.19 22);
+  /* Destructive */
+  --destructive:        #f87171;
 
-  /* Borders & inputs — subtle white alpha */
-  --border:             oklch(1 0 0 / 9%);
-  --input:              oklch(1 0 0 / 13%);
-  --ring:               oklch(0.72 0.20 278 / 60%);
+  /* Borders, inputs, and focus */
+  --border:             rgb(148 198 233 / 14%);
+  --input:              rgb(148 198 233 / 20%);
+  --ring:               #22b5f3;
 
-  /* Data-viz chart palette */
-  --chart-1:            oklch(0.60 0.24  264);
-  --chart-2:            oklch(0.70 0.17  162);
-  --chart-3:            oklch(0.77 0.19   70);
-  --chart-4:            oklch(0.63 0.27  304);
-  --chart-5:            oklch(0.65 0.25   16);
+  /* Data visualization palette */
+  --chart-1:            #38bdf8;
+  --chart-2:            #6685dc;
+  --chart-3:            #2dd4bf;
+  --chart-4:            #fbbf24;
+  --chart-5:            #a78bfa;
 
   /* Sidebar */
-  --sidebar:                      oklch(0.15 0.026 264);
-  --sidebar-foreground:           oklch(0.96 0.006 248);
-  --sidebar-primary:              oklch(0.60 0.24  264);
-  --sidebar-primary-foreground:   oklch(0.96 0.006 248);
-  --sidebar-accent:               oklch(0.22 0.030 257);
-  --sidebar-accent-foreground:    oklch(0.96 0.006 248);
-  --sidebar-border:               oklch(1 0 0 / 9%);
-  --sidebar-ring:                 oklch(0.52 0.027 264);
-
-  /* Brand unchanged across themes */
-  --brand: #7b57fc;
+  --sidebar:                      #0b1829;
+  --sidebar-foreground:           #eef7ff;
+  --sidebar-primary:              #38bdf8;
+  --sidebar-primary-foreground:   #06131f;
+  --sidebar-accent:               #163b5a;
+  --sidebar-accent-foreground:    #dff6ff;
+  --sidebar-border:               rgb(148 198 233 / 14%);
+  --sidebar-ring:                 #22b5f3;
 }
 
 
-/* ─── 6. TYPOGRAPHY / FONT ROUTING ───────────────────────────────────────── */
+/* --- 6. TYPOGRAPHY / FONT ROUTING --------------------------------------- */
 
-/* RTL locales → Arabic typeface */
+/* RTL locales use the Arabic typeface */
 html[dir="rtl"] {
   --font-sans: var(--font-ar);
 }
@@ -222,7 +258,7 @@ body {
 }
 
 
-/* ─── 7. BASE LAYER ─────────────────────────────────────────────────────── */
+/* --- 7. BASE LAYER ------------------------------------------------------- */
 
 @layer base {
   * {
@@ -237,133 +273,236 @@ body {
     @apply bg-background text-foreground antialiased;
   }
 
-  /* Prevent layout shift while theme loads */
+  ::selection {
+    color: var(--brand-foreground);
+    background: var(--brand);
+  }
+
+  /* Prevent layout shift while the theme loads */
   :root {
     color-scheme: light;
   }
+
   .dark {
     color-scheme: dark;
   }
 }
 
 
-/* ─── 8. PROSE (BLOG / RICH TEXT) ───────────────────────────────────────── */
+/* --- 8. PROSE (BLOG / RICH TEXT) ---------------------------------------- */
 
 @layer components {
-
-  /* ── Container ── */
+  /* Container */
   .prose {
     @apply max-w-none text-foreground leading-relaxed;
   }
 
-  /* ── Headings ── */
+  /* Headings */
   .prose h1 {
-    @apply text-4xl md:text-5xl font-bold mt-12 mb-6
-           text-foreground tracking-tight;
+    @apply mt-12 mb-6 text-4xl font-bold tracking-tight
+           text-foreground md:text-5xl;
   }
+
   .prose h2 {
-    @apply text-2xl md:text-3xl font-bold mt-10 mb-4
-           text-foreground tracking-tight
-           border-b border-border/30 pb-2;
+    @apply mt-10 mb-4 border-b border-border/30 pb-2
+           text-2xl font-bold tracking-tight text-foreground md:text-3xl;
   }
+
   .prose h3 {
-    @apply text-xl md:text-2xl font-semibold mt-8 mb-3 text-foreground;
+    @apply mt-8 mb-3 text-xl font-semibold text-foreground md:text-2xl;
   }
+
   .prose h4 {
-    @apply text-lg font-semibold mt-6 mb-2 text-foreground;
+    @apply mt-6 mb-2 text-lg font-semibold text-foreground;
   }
+
   .prose h5,
   .prose h6 {
-    @apply text-base font-semibold mt-5 mb-2 text-foreground;
+    @apply mt-5 mb-2 text-base font-semibold text-foreground;
   }
 
-  /* ── Paragraphs ── */
+  /* Paragraphs */
   .prose p {
-    @apply mb-5 text-base md:text-lg leading-relaxed;
+    @apply mb-5 text-base leading-relaxed md:text-lg;
   }
 
-  /* ── Links ── */
+  /* Links */
   .prose a {
-    @apply text-primary no-underline hover:underline transition-colors duration-200;
+    @apply text-primary no-underline transition-colors duration-200
+           hover:underline;
   }
 
-  /* ── Images ── */
+  /* Images */
   .prose img {
-    @apply rounded-xl my-8 shadow-md border border-border/20;
+    @apply my-8 rounded-xl border border-border/20 shadow-md;
   }
+
   .prose figure {
     @apply my-8;
   }
+
   .prose figcaption {
-    @apply text-sm text-muted-foreground text-center mt-2 italic;
+    @apply mt-2 text-center text-sm italic text-muted-foreground;
   }
 
-  /* ── Lists ── */
-  .prose ul { @apply my-5 pl-6 list-disc; }
-  .prose ol { @apply my-5 pl-6 list-decimal; }
-  .prose li { @apply mb-1 leading-relaxed; }
+  /* Lists */
+  .prose ul {
+    @apply my-5 list-disc pl-6;
+  }
+
+  .prose ol {
+    @apply my-5 list-decimal pl-6;
+  }
+
+  .prose li {
+    @apply mb-1 leading-relaxed;
+  }
+
   .prose li > ul,
-  .prose li > ol { @apply my-2; }
+  .prose li > ol {
+    @apply my-2;
+  }
 
-  /* ── Blockquotes ── */
+  /* Blockquotes */
   .prose blockquote {
-    @apply border-l-4 border-primary pl-5 italic my-6 text-muted-foreground;
-  }
-  .prose blockquote p:last-child { @apply mb-0; }
-  .prose blockquote cite {
-    @apply text-sm not-italic text-muted-foreground/70 block mt-2;
+    @apply my-6 border-l-4 border-primary pl-5 italic text-muted-foreground;
   }
 
-  /* ── Code ── */
+  .prose blockquote p:last-child {
+    @apply mb-0;
+  }
+
+  .prose blockquote cite {
+    @apply mt-2 block text-sm not-italic text-muted-foreground/70;
+  }
+
+  /* Code */
   .prose code {
-    @apply bg-muted px-1.5 py-0.5 rounded-md text-sm font-mono;
+    @apply rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm;
   }
+
   .prose pre {
-    @apply bg-muted p-4 rounded-xl overflow-x-auto text-sm font-mono my-6;
+    @apply my-6 overflow-x-auto rounded-xl bg-muted p-4 font-mono text-sm;
   }
+
   .prose pre code {
     @apply bg-transparent p-0 text-inherit;
   }
 
-  /* ── Divider ── */
+  /* Divider */
   .prose hr {
     @apply my-12 border-t border-border/50;
   }
 
-  /* ── Tables ── */
-  .prose table  { @apply w-full my-6 border-collapse text-sm; }
-  .prose thead  { @apply bg-muted/50; }
-  .prose th     { @apply border border-border/60 px-4 py-2 text-left font-semibold; }
-  .prose td     { @apply border border-border/60 px-4 py-2; }
+  /* Tables */
+  .prose table {
+    @apply my-6 w-full border-collapse text-sm;
+  }
 
-  /* ── Footnotes ── */
-  .prose .footnote  { @apply text-xs text-muted-foreground align-super; }
-  .prose .footnotes { @apply mt-12 pt-4 text-sm border-t border-border/30; }
+  .prose thead {
+    @apply bg-muted/50;
+  }
 
-  /* ── RTL prose overrides ── */
+  .prose th {
+    @apply border border-border/60 px-4 py-2 text-left font-semibold;
+  }
+
+  .prose td {
+    @apply border border-border/60 px-4 py-2;
+  }
+
+  /* Footnotes */
+  .prose .footnote {
+    @apply align-super text-xs text-muted-foreground;
+  }
+
+  .prose .footnotes {
+    @apply mt-12 border-t border-border/30 pt-4 text-sm;
+  }
+
+  /* RTL prose overrides */
   .prose-rtl {
     direction: rtl;
     text-align: right;
   }
+
   .prose-rtl blockquote {
-    border-left:    none;
-    border-right:   4px solid var(--primary);
-    padding-left:   0;
-    padding-right:  1.25rem;
+    border-left: none;
+    border-right: 4px solid var(--primary);
+    padding-left: 0;
+    padding-right: 1.25rem;
   }
+
   .prose-rtl ul,
   .prose-rtl ol {
-    padding-left:  0;
+    padding-left: 0;
     padding-right: 1.5rem;
   }
+
   .prose-rtl th {
     @apply text-right;
   }
 }
 
 
-/* ─── 9. UTILITY CLASSES ─────────────────────────────────────────────────── */
+/* --- 9. BRAND UTILITY CLASSES ------------------------------------------- */
 
-/* Brand color shortcuts used across the codebase */
-.bg-color   { background-color: var(--brand) !important; }
-.text-color { color:            var(--brand) !important; }
+/* Gradient background for primary buttons, badges, and branded surfaces */
+.bg-color,
+.bg-brand-gradient {
+  color: var(--brand-foreground);
+  background-color: var(--brand);
+  background-image: var(--brand-gradient);
+}
+
+/* Soft gradient surface for cards and highlighted sections */
+.bg-brand-soft {
+  background-color: var(--accent);
+  background-image: var(--brand-gradient-soft);
+}
+
+/* Gradient text for headings and highlighted words */
+.text-color,
+.text-brand-gradient {
+  color: var(--brand);
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient border that keeps the element's normal background */
+.border-brand-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    var(--brand-gradient) border-box;
+}
+
+/* Reusable brand glow for calls to action and featured cards */
+.shadow-brand {
+  box-shadow: var(--brand-shadow);
+}
+
+/* Make gradient motion follow writing direction for RTL locales */
+html[dir="rtl"] {
+  --brand-gradient: linear-gradient(
+    270deg,
+    var(--brand-start) 0%,
+    var(--brand-end) 100%
+  );
+  --brand-gradient-soft: linear-gradient(
+    270deg,
+    rgb(10 184 251 / 14%) 0%,
+    rgb(50 75 157 / 14%) 100%
+  );
+}
+
+.dark[dir="rtl"],
+.dark [dir="rtl"] {
+  --brand-gradient-soft: linear-gradient(
+    270deg,
+    rgb(10 184 251 / 18%) 0%,
+    rgb(50 75 157 / 22%) 100%
+  );
+}

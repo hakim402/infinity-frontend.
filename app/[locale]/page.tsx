@@ -4,7 +4,7 @@ import { getLocale } from "next-intl/server";
 
 import { Header } from "./_components/Header/Header";
 import { FooterSection } from "./_components/Footer/FooterSections";
-import HeroSection from "./_components/Hero/HeroSection";
+import HomeHero from "./_components/HomeHero/HomeHero";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -115,7 +115,7 @@ export default async function Home() {
     <div dir={isRtl ? "rtl" : "ltr"}>
       <Header />
 
-      <HeroSection />
+      <HomeHero />
 
       <FooterSection />
     </div>
