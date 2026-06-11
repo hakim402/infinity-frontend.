@@ -19,8 +19,9 @@ import {
 import { cn } from "@/lib/utils";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Social SVG icons  (lucide-react removed Facebook/Instagram/Twitter/LinkedIn)
+// Social SVG icons
 // ─────────────────────────────────────────────────────────────────────────────
+
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -53,9 +54,6 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// WhatsApp SVG
-// ─────────────────────────────────────────────────────────────────────────────
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -67,6 +65,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
+
 interface FooterLink {
   labelKey: string;
   href: string;
@@ -81,8 +80,9 @@ interface FooterColumn {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Column data  (keys map to messages/xx.json → footer.columns.*)
+// Column data
 // ─────────────────────────────────────────────────────────────────────────────
+
 const COLUMNS: FooterColumn[] = [
   {
     titleKey: "columns.services.title",
@@ -109,9 +109,9 @@ const COLUMNS: FooterColumn[] = [
         href: "/services",
         badgeKey: "badges.new",
       },
-      { labelKey: "columns.technology.api_integration", href: "/services" },
-      { labelKey: "columns.technology.database",        href: "/services" },
-      { labelKey: "columns.technology.cloud",           href: "/services" },
+      { labelKey: "columns.technology.api_integration",   href: "/services" },
+      { labelKey: "columns.technology.database",           href: "/services" },
+      { labelKey: "columns.technology.cloud",              href: "/services" },
       {
         labelKey: "columns.technology.security_compliance",
         href: "/services",
@@ -124,19 +124,32 @@ const COLUMNS: FooterColumn[] = [
     titleKey: "columns.company.title",
     icon: Shield,
     links: [
-      { labelKey: "columns.company.about",   href: "/about"   },
+      { labelKey: "columns.company.about",    href: "/about"   },
       { labelKey: "columns.company.services", href: "/services" },
-      { labelKey: "columns.company.blogs",   href: "/blogs"   },
-      { labelKey: "columns.company.contact", href: "/contact" },
-      { labelKey: "columns.company.privacy", href: "/privacy" },
-      { labelKey: "columns.company.terms",   href: "/terms"   },
+      { labelKey: "columns.company.blogs",    href: "/blogs"   },
+      { labelKey: "columns.company.contact",  href: "/contact" },
+      { labelKey: "columns.company.privacy",  href: "/privacy" },
+      { labelKey: "columns.company.terms",    href: "/terms"   },
     ],
   },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Badge chip
+// ─────────────────────────────────────────────────────────────────────────────
+
+function BadgeChip({ label }: { label: string }) {
+  return (
+    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-primary/10 text-primary leading-none">
+      {label}
+    </span>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Link column
 // ─────────────────────────────────────────────────────────────────────────────
+
 function LinkColumn({
   column,
   locale,
@@ -152,14 +165,13 @@ function LinkColumn({
 
   return (
     <div dir={isRtl ? "rtl" : "ltr"}>
-
       {/* Column heading */}
       <div className={cn("flex items-center gap-2 mb-5", isRtl && "flex-row-reverse")}>
-        <div className="w-6 h-6 rounded-lg bg-[#7b57fc]/10 flex items-center justify-center shrink-0">
-          <Icon className="w-3.5 h-3.5 text-[#7b57fc]" />
+        <div className="size-6 rounded-lg bg-accent flex items-center justify-center shrink-0">
+          <Icon className="size-3.5 text-primary" aria-hidden="true" />
         </div>
         <h4 className="text-sm font-semibold text-foreground">
-          {t(column.titleKey as any)}
+          {t(column.titleKey as Parameters<typeof t>[0])}
         </h4>
       </div>
 
@@ -172,28 +184,26 @@ function LinkColumn({
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
               className={cn(
-                "group flex items-center gap-1.5 text-sm text-muted-foreground hover:text-[#7b57fc] transition-colors duration-150",
+                "group flex items-center gap-1.5 text-sm text-muted-foreground",
+                "hover:text-primary transition-colors duration-150",
                 isRtl && "flex-row-reverse",
               )}
             >
               <ChevronRight
                 className={cn(
-                  "w-3 h-3 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-150",
-                  isRtl
-                    ? "rotate-180"
-                    : "group-hover:translate-x-0.5",
+                  "size-3 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-150",
+                  isRtl ? "rotate-180" : "group-hover:translate-x-0.5",
                 )}
+                aria-hidden="true"
               />
-              <span>{t(link.labelKey as any)}</span>
+              <span>{t(link.labelKey as Parameters<typeof t>[0])}</span>
 
               {link.badgeKey && (
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#7b57fc]/12 text-[#7b57fc]">
-                  {t(link.badgeKey as any)}
-                </span>
+                <BadgeChip label={t(link.badgeKey as Parameters<typeof t>[0])} />
               )}
 
               {link.external && (
-                <ExternalLink className="w-2.5 h-2.5 opacity-40 shrink-0" />
+                <ExternalLink className="size-2.5 opacity-40 shrink-0" aria-hidden="true" />
               )}
             </Link>
           </li>
@@ -206,6 +216,7 @@ function LinkColumn({
 // ─────────────────────────────────────────────────────────────────────────────
 // Contact row
 // ─────────────────────────────────────────────────────────────────────────────
+
 function ContactRow({
   isRtl,
   t,
@@ -214,37 +225,53 @@ function ContactRow({
   t: ReturnType<typeof useTranslations<"footer">>;
 }) {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "+1234567890";
-  const whatsappMsg    = encodeURIComponent(t("contact.whatsapp"));
+  const whatsappMsg    = encodeURIComponent(t("contact.whatsapp" as Parameters<typeof t>[0]));
 
   return (
     <div
       className={cn("flex flex-wrap items-center gap-3", isRtl && "flex-row-reverse")}
       dir={isRtl ? "rtl" : "ltr"}
     >
+      {/* WhatsApp CTA */}
       <a
         href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${whatsappMsg}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold transition-all hover:-translate-y-0.5 shadow-md shadow-emerald-500/20"
+        className={cn(
+          "flex items-center gap-2 px-4 py-2 rounded-full",
+          "bg-emerald-500 hover:bg-emerald-600 text-white",
+          "text-xs font-semibold shadow-md shadow-emerald-500/20",
+          "transition-all duration-200 hover:-translate-y-0.5",
+          isRtl && "flex-row-reverse",
+        )}
       >
-        <WhatsAppIcon className="w-3.5 h-3.5" />
-        {t("contact.whatsapp")}
+        <WhatsAppIcon className="size-3.5" />
+        {t("contact.whatsapp" as Parameters<typeof t>[0])}
       </a>
 
+      {/* Email CTA */}
       <a
-        href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "support@infinity-solutions.pro"}`}
-        className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-[#7b57fc]/40 transition-all hover:-translate-y-0.5"
+        href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "hello@infinity-solutions.pro"}`}
+        className={cn(
+          "flex items-center gap-2 px-4 py-2 rounded-full",
+          "border border-border bg-background/80 backdrop-blur",
+          "text-xs font-semibold text-muted-foreground",
+          "hover:text-primary hover:border-primary/40",
+          "transition-all duration-200 hover:-translate-y-0.5",
+          isRtl && "flex-row-reverse",
+        )}
       >
-        <Mail className="w-3.5 h-3.5" />
-        {t("contact.email")}
+        <Mail className="size-3.5" aria-hidden="true" />
+        {t("contact.email" as Parameters<typeof t>[0])}
       </a>
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CTA banner
+// CTA banner — uses brand gradient from global.css
 // ─────────────────────────────────────────────────────────────────────────────
+
 function CtaBanner({
   isRtl,
   locale,
@@ -256,31 +283,57 @@ function CtaBanner({
 }) {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl border border-[#7b57fc]/20 bg-[#7b57fc]/5 px-6 py-5"
+      className={cn(
+        "relative overflow-hidden rounded-2xl px-6 py-5",
+        "border border-primary/20 bg-brand-soft",
+      )}
       dir={isRtl ? "rtl" : "ltr"}
     >
-      {/* Decorative orb */}
-      <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-[#7b57fc]/20 blur-2xl pointer-events-none" />
+      {/* Decorative glow blob */}
+      <div
+        aria-hidden="true"
+        className="absolute -right-10 -top-10 size-36 rounded-full bg-primary/15 blur-3xl pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -left-6 -bottom-6 size-24 rounded-full bg-brand-end/10 blur-2xl pointer-events-none"
+      />
 
-      <div className={cn(
-        "relative flex flex-col sm:flex-row items-start sm:items-center gap-4",
-        isRtl && "sm:flex-row-reverse",
-      )}>
-        <div className="flex-1">
+      <div
+        className={cn(
+          "relative flex flex-col sm:flex-row items-start sm:items-center gap-4",
+          isRtl && "sm:flex-row-reverse",
+        )}
+      >
+        <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-foreground mb-0.5">
-            {t("cta.heading")}
+            {t("cta.heading" as Parameters<typeof t>[0])}
           </p>
           <p className="text-xs text-muted-foreground">
-            {t("cta.subheading")}
+            {t("cta.subheading" as Parameters<typeof t>[0])}
           </p>
         </div>
 
         <Link
           href={`/${locale}/contact`}
-          className="group flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#7b57fc] text-white text-xs font-bold shadow-md shadow-[#7b57fc]/25 hover:bg-[#6a48eb] transition-all hover:-translate-y-0.5 whitespace-nowrap shrink-0"
+          className={cn(
+            "group flex items-center gap-1.5 px-5 py-2.5 rounded-full shrink-0 whitespace-nowrap",
+            "bg-color text-brand-foreground text-xs font-bold",
+            "shadow-brand transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            isRtl && "flex-row-reverse",
+          )}
         >
-          {t("cta.button")}
-          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          {t("cta.button" as Parameters<typeof t>[0])}
+          <ArrowUpRight
+            className={cn(
+              "size-3.5 transition-transform",
+              isRtl
+                ? "group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+                : "group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+            )}
+            aria-hidden="true"
+          />
         </Link>
       </div>
     </div>
@@ -288,8 +341,36 @@ function CtaBanner({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Social icons row
+// Social row
 // ─────────────────────────────────────────────────────────────────────────────
+
+const SOCIALS = [
+  {
+    Icon: FacebookIcon,
+    href: "https://facebook.com/infinity.enterprise.solutions",
+    labelKey: "social.facebook",
+    hoverClass: "hover:text-[#1877f2]",
+  },
+  {
+    Icon: InstagramIcon,
+    href: "https://instagram.com/infinity_e_s",
+    labelKey: "social.instagram",
+    hoverClass: "hover:text-[#e4405f]",
+  },
+  {
+    Icon: XIcon,
+    href: "https://x.com/infinity_es",
+    labelKey: "social.twitter",
+    hoverClass: "hover:text-foreground",
+  },
+  {
+    Icon: LinkedInIcon,
+    href: "https://linkedin.com/company/infinity-enterprise-solutions",
+    labelKey: "social.linkedin",
+    hoverClass: "hover:text-[#0a66c2]",
+  },
+] as const;
+
 function SocialRow({
   isRtl,
   t,
@@ -297,36 +378,21 @@ function SocialRow({
   isRtl: boolean;
   t: ReturnType<typeof useTranslations<"footer">>;
 }) {
-  const socials = [
-    {
-      icon: FacebookIcon,
-      href: "https://facebook.com/infinity.enterprise.solutions",
-      labelKey: "social.facebook",
-      hoverColor: "hover:text-[#1877f2]",
-    },
-    {
-      icon: InstagramIcon,
-      href: "https://instagram.com/infinity_e_s",
-      labelKey: "social.instagram",
-      hoverColor: "hover:text-[#e4405f]",
-    },
-  ];
-
   return (
     <div className={cn("flex items-center gap-3", isRtl && "flex-row-reverse")}>
-      {socials.map(({ icon: Icon, href, labelKey, hoverColor }) => (
+      {SOCIALS.map(({ Icon, href, labelKey, hoverClass }) => (
         <a
           key={labelKey}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={t(labelKey as any)}
+          aria-label={t(labelKey as Parameters<typeof t>[0])}
           className={cn(
-            "text-muted-foreground/60 transition-colors duration-150",
-            hoverColor,
+            "text-muted-foreground/50 transition-colors duration-150",
+            hoverClass,
           )}
         >
-          <Icon className="w-4 h-4" />
+          <Icon className="size-4" />
         </a>
       ))}
     </div>
@@ -334,25 +400,64 @@ function SocialRow({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Brand mark — top-left logo + wordmark
+// ─────────────────────────────────────────────────────────────────────────────
+
+function BrandMark({ isRtl }: { isRtl: boolean }) {
+  return (
+    <div className={cn("flex items-center gap-3", isRtl && "flex-row-reverse")}>
+      {/* Logo container using card token so it adapts to light/dark */}
+      <div className="relative size-10 rounded-2xl overflow-hidden border border-border/60 bg-card shadow-sm shrink-0">
+        <Image
+          src="/logo/icon.png"
+          alt="Infinity Solutions logo"
+          fill
+          className="object-contain p-1"
+          sizes="40px"
+          priority
+        />
+      </div>
+      <div className={isRtl ? "text-right" : undefined}>
+        <p className="text-sm font-bold text-foreground leading-none tracking-tight">
+          Infinity Solutions
+        </p>
+        <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">
+          AI &amp; Digital Transformation
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Main Footer
 // ─────────────────────────────────────────────────────────────────────────────
+
+const RTL_LOCALES = new Set(["ar", "fa", "ps"]);
+
+const BOTTOM_LINKS = [
+  ["bottom.privacy", "/privacy"],
+  ["bottom.terms",   "/terms"  ],
+  ["bottom.sitemap", "/sitemap"],
+] as const;
+
 export function FooterSection() {
   const locale = useLocale();
   const t      = useTranslations("footer");
-
-  const RTL_LOCALES = ["ar", "fa", "ps"] as const;
-  const isRtl = RTL_LOCALES.includes(locale as (typeof RTL_LOCALES)[number]);
-
-  const year = new Date().getFullYear();
+  const isRtl  = RTL_LOCALES.has(locale);
+  const year   = new Date().getFullYear();
 
   return (
     <footer className="relative bg-background border-t border-border/50 overflow-hidden">
 
-      {/* Subtle noise texture overlay */}
-      <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(ellipse_at_top_right,var(--brand)_0%,transparent_60%)]" />
+      {/* Ambient gradient — matches hero background language */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,rgb(10_184_251/5%),transparent)] dark:bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,rgb(10_184_251/4%),transparent)]"
+      />
 
-      {/* ── Main grid ── */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-14">
+      {/* ── Main content ── */}
+      <div className="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -360,56 +465,39 @@ export function FooterSection() {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8"
         >
-
-          {/* ── Brand column ────────────────────────────────────────────── */}
+          {/* ── Brand column (4/12) ── */}
           <div
             className="lg:col-span-4 flex flex-col gap-5"
             dir={isRtl ? "rtl" : "ltr"}
           >
-            {/* Logo + name */}
-            <div className={cn("flex items-center gap-3", isRtl && "flex-row-reverse")}>
-              <div className="relative w-10 h-10 rounded-2xl overflow-hidden bg-background shadow-lg shadow-[#7b57fc]/20 shrink-0">
-                <Image
-                  src="/logo/icon.png"
-                  alt="Infinity Solutions logo"
-                  fill
-                  className="object-contain p-1"
-                  sizes="40px"
-                  priority
-                />
-              </div>
-              <div>
-                <p className="text-base font-bold text-foreground leading-none tracking-tight">
-                  Infinity Solutions
-                </p>
-                <p className="text-[10px] text-muted-foreground mt-0.5 font-medium">
-                  Enterprise AI & Technology
-                </p>
-              </div>
-            </div>
+            <BrandMark isRtl={isRtl} />
 
             {/* Tagline */}
-            <p className={cn(
-              "text-sm text-muted-foreground leading-relaxed max-w-xs",
-              isRtl && "text-right",
-            )}>
-              {t("tagline")}
+            <p
+              className={cn(
+                "text-sm text-muted-foreground leading-relaxed max-w-xs",
+                isRtl && "text-right",
+              )}
+            >
+              {t("tagline" as Parameters<typeof t>[0])}
             </p>
 
             {/* Contact buttons */}
             <ContactRow isRtl={isRtl} t={t} />
 
-            {/* Location note */}
-            <div className={cn(
-              "flex items-start gap-2 text-xs text-muted-foreground/60",
-              isRtl && "flex-row-reverse text-right",
-            )}>
-              <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5" />
-              <span>{t("location")}</span>
+            {/* Location */}
+            <div
+              className={cn(
+                "flex items-start gap-2 text-xs text-muted-foreground/60",
+                isRtl && "flex-row-reverse text-right",
+              )}
+            >
+              <MapPin className="size-3.5 shrink-0 mt-0.5" aria-hidden="true" />
+              <span>{t("location" as Parameters<typeof t>[0])}</span>
             </div>
           </div>
 
-          {/* ── Link columns ────────────────────────────────────────────── */}
+          {/* ── Link columns (8/12) ── */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
             {COLUMNS.map((col) => (
               <LinkColumn
@@ -436,34 +524,31 @@ export function FooterSection() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-border/40">
+      <div className="relative border-t border-border/40">
         <div
           className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3"
           dir={isRtl ? "rtl" : "ltr"}
         >
           {/* Copyright */}
           <p className="text-xs text-muted-foreground/60 text-center sm:text-start">
-            {t("bottom.copyright", { year })}
+            {t("bottom.copyright" as Parameters<typeof t>[0], { year })}
           </p>
 
           {/* Legal links */}
-          <div className={cn("flex items-center gap-4", isRtl && "flex-row-reverse")}>
-            {(
-              [
-                ["bottom.privacy", "/privacy"],
-                ["bottom.terms",   "/terms"  ],
-                ["bottom.sitemap", "/sitemap"],
-              ] as const
-            ).map(([key, href]) => (
+          <nav
+            aria-label="Legal"
+            className={cn("flex items-center gap-4", isRtl && "flex-row-reverse")}
+          >
+            {BOTTOM_LINKS.map(([key, href]) => (
               <Link
                 key={key}
                 href={`/${locale}${href}`}
-                className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+                className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-150"
               >
-                {t(key)}
+                {t(key as Parameters<typeof t>[0])}
               </Link>
             ))}
-          </div>
+          </nav>
 
           {/* Social icons */}
           <SocialRow isRtl={isRtl} t={t} />

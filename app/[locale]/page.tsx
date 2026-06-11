@@ -5,6 +5,7 @@ import { getLocale } from "next-intl/server";
 import { Header } from "./_components/Header/Header";
 import { FooterSection } from "./_components/Footer/FooterSections";
 import HomeHero from "./_components/HomeHero/HomeHero";
+import { AiShowcase } from "./_components/AiShowcase/AiShowcase";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -116,6 +117,8 @@ export default async function Home() {
       <Header />
 
       <HomeHero />
+
+      <AiShowcase />
 
       <FooterSection />
     </div>
